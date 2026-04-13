@@ -12,6 +12,7 @@ import pandas as pd
 
 from sktime.detection.base import BaseDetector
 from sktime.detection.utils._arr_to_seg import arr_to_seg
+from sktime.utils.validation.series import check_series
 
 __author__ = ["miraep8"]
 __all__ = ["BaseHMMLearn"]
@@ -34,6 +35,7 @@ class BaseHMMLearn(BaseDetector):
         "fit_is_empty": False,
         "task": "segmentation",
         "learning_type": "unsupervised",
+        "X_inner_mtype": "pd.Series",
     }  # for unit test cases
     _hmm_estimator = None
 
@@ -78,6 +80,7 @@ class BaseHMMLearn(BaseDetector):
         self :
             Reference to self.
         """
+        X = check_series(X, enforce_univariate=True, allow_numpy=True)
         X, _, _ = self._fix_input(X)
         self._hmm_estimator = self._hmm_estimator.fit(X)
         return self
