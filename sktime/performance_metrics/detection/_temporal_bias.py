@@ -64,8 +64,8 @@ class TemporalBias(BaseDetectionMetric):
         """
            
         bias = []
-        E = np.argwhere(y_pred['ilocs']==1).reshape(-1) # detected events set
-        R = np.argwhere(y_true['ilocs']==1).reshape(-1) # real events set
+        E = y_pred['ilocs'].values # detected events set
+        R = y_true['ilocs'].values # real events set
         
         for i in range(len(R)):
             reference_event = R[i]
