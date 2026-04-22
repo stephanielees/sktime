@@ -2810,23 +2810,16 @@
       "name": "Priyanshu Harshabodhi",
       "avatar_url": "https://avatars.githubusercontent.com/u/132090159?v=4",
       "profile": "https://github.com/priyanshuharshbodhi1",
-<<<<<<< HEAD
       "contributions": [
         "code"
       ]
     },
-	{
+	  {
       "login": "stephanielees",
       "name": "Stephanie Lee Sugiharjo",
       "avatar_url": "https://avatars.githubusercontent.com/u/128904767?v=4",
       "profile": "https://github.com/stephanielees",
-      "contributions": [
-        "code"
-      ]
-    },
-=======
       "contributions": ["code"]
-    }
->>>>>>> main
+    },
   ]
 }
