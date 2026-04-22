@@ -60,7 +60,6 @@ class TemporalBias(BaseDetectionMetric):
         skew: float,
             The skewness of the temporal_bias (or bias for short).
             Positive skewness indicates anticipated detection, while a negative one indicates delayed detections.
-            Note that any NA's would be omitted before calculating the skewness.
         """
            
         bias = []
@@ -76,26 +75,26 @@ class TemporalBias(BaseDetectionMetric):
             # if there is no early detections,
             # that means there are only late detections
             if len(early_detections) == 0:
-                post_i = self._aposteriori(late_detections, reference_event)
+                post_i = self._posteriori(late_detections, reference_event)
                 bias.append(post_i)
             
             # if there is no late detections,
             # that means there are only early detections
             if len(late_detections) == 0:
-                prior_i = self._apriori(early_detections, reference_event)
+                prior_i = self._priori(early_detections, reference_event)
                 bias.append(-prior_i)
             
             if (len(early_detections) > 0) and (len(late_detections) > 0):           
-                prior_i = self._apriori(early_detections, reference_event)
-                post_i = self._aposteriori(late_detections, reference_event)
+                prior_i = self._priori(early_detections, reference_event)
+                post_i = self._posteriori(late_detections, reference_event)
                 bias_i = post_i if post_i < prior_i else -prior_i
                 bias.append(bias_i)
         
         self.temporal_bias = bias
-        return skew(bias, nan_policy="omit")
+        return skew(bias)
         
-    def _apriori(self, detections, reference_true_event):
-        """Compute the a posteriori distance, which is the distance between the early or anticipated detection and the real events.
+    def _priori(self, detections, reference_true_event):
+        """Compute the priori distance, which is the distance between the early or anticipated detection and the real events.
         
         Parameters:
             detections: array-like,
@@ -106,8 +105,8 @@ class TemporalBias(BaseDetectionMetric):
         
         return np.abs(reference_true_event - np.max(detections))
     
-    def _aposteriori(self, detections, reference_true_event):
-        """Compute the a posteriori distance, which is the distance between the late or delayed detection and the real events.
+    def _posteriori(self, detections, reference_true_event):
+        """Compute the posteriori distance, which is the distance between the late or delayed detection and the real events.
         
         Parameters:
             detections: array-like,
