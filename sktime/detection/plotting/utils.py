@@ -36,7 +36,9 @@ def plot_time_series_with_change_points(
         for plotting
     legend: bool, (default = True)
         whether a legend should be added
-    **kwargs: any other parameters of plt.plot, optional
+    **kwargs: other parameters of plt.plot, optional
+        the other parameter accepted now is `figsize`, which is
+        a parameter to set the size of the figure.
 
     Returns
     -------
