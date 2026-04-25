@@ -2806,6 +2806,13 @@
       "contributions": ["doc"]
     },
     {
+      "login": "paramsureliya",
+      "name": "Param Sureliya",
+      "avatar_url": "https://avatars.githubusercontent.com/u/paramsureliya",
+      "profile": "https://github.com/paramsureliya",
+      "contributions": ["code"]
+    },
+    {
       "login": "priyanshuharshbodhi1",
       "name": "Priyanshu Harshabodhi",
       "avatar_url": "https://avatars.githubusercontent.com/u/132090159?v=4",
@@ -2814,12 +2821,15 @@
         "code"
       ]
     },
-	  {
-      "login": "stephanielees",
-      "name": "Stephanie Lee Sugiharjo",
-      "avatar_url": "https://avatars.githubusercontent.com/u/128904767?v=4",
-      "profile": "https://github.com/stephanielees",
-      "contributions": ["code"]
-    },
+    {
+      "login": "shaun0927",
+      "name": "Junghwan",
+      "avatar_url": "https://avatars.githubusercontent.com/u/70629228?v=4",
+      "profile": "https://github.com/shaun0927",
+      "contributions": [
+        "bug",
+        "code"
+      ]
+    }
   ]
 }
